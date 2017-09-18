@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filmNames">
+        <item>Графомафия</item>
+        <item>Валериан и город тысячи планет 12345</item>
+        <item>Фильм 3</item>
+        <item>Фильм 4</item>
+        <item>Фильм 5</item>
+        <item>Фильм 6</item>
+    </string-array>
+    <string-array name="film1SeanceDate">
+        <item>22.08 16:00</item>
+        <item>24.08 15:00</item>
+        <item>26.08 15:00</item>
+        <item>27.08 14:30</item>
+
+    </string-array>
+    <string-array name="filmDescription">
+        <item>Описание фильма 1</item>
+        <item>Описание фильма 2</item>
+        <item>Описание фильма 3</item>
+        <item>Описание фильма 4</item>
+        <item>Описание фильма 5</item>
+        <item>Описание фильма 6</item>
+    </string-array>
+    <string-array name="filmDescriptionLong">
+        <item>Длинное описание фильма 1</item>
+        <item>Длинное описание фильма 2</item>
+        <item>Длинное описание фильма 3</item>
+        <item>Длинное описание фильма 4</item>
+        <item>Длинное описание фильма 5</item>
+        <item>Длинное описание фильма 6</item>
+    </string-array>
+    <string-array name="filmAge">
+        <item>Возраст 1</item>
+        <item>Возраст 2</item>
+        <item>Возраст 3</item>
+        <item>Возраст 4</item>
+        <item>Возраст 5</item>
+        <item>Возраст 6</item>
+    </string-array>
+    <array name="filmAvatar">
+        <item>@drawable/a_avator</item>
+        <item>@drawable/b_avator</item>
+        <item>@drawable/c_avator</item>
+        <item>@drawable/d_avator</item>
+        <item>@drawable/e_avator</item>
+        <item>@drawable/f_avator</item>
+    </array>
+
+
+    <array name="filmPicture">
+        <item>@drawable/a</item>
+        <item>@drawable/b</item>
+        <item>@drawable/c</item>
+        <item>@drawable/d</item>
+        <item>@drawable/e</item>
+        <item>@drawable/f</item>
+    </array>
+</resources>
