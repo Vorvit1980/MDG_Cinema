@@ -101,7 +101,7 @@ public class FilmsListFragment extends Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.picture.setImageDrawable(mPlacePictures[position]);
             holder.name.setText(mPlaces[position]);
-            holder.description.setText(mPlaceDesc[position]);
+            //holder.description.setText(mPlaceDesc[position]);
         }
 
         @Override
