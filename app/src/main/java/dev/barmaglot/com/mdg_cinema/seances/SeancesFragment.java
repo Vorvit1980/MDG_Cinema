@@ -22,10 +22,12 @@ public class SeancesFragment extends Fragment {
     private SeancesItem seancesItem = null;
     private SeancesSubItem seancesSubItem = null;
     private Utils utils;
+    private ArrayList<Object> itemArrayList;
 
     public SeancesFragment() {
         // Required empty public constructor
         utils = new Utils();
+        itemArrayList = new ArrayList<>();
     }
 
 
@@ -36,10 +38,19 @@ public class SeancesFragment extends Fragment {
                 R.layout.recycler_view, container, false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        ArrayList<Object> itemArrayList = new ArrayList<>();
+        initData();
+
+        SeancesRecyclerViewAdapter seancesRecyclerViewAdapter = new SeancesRecyclerViewAdapter(itemArrayList);
+        recyclerView.setAdapter(seancesRecyclerViewAdapter);
+
+        return recyclerView;
+    }
+    private void initData(){
+
+        itemArrayList = new ArrayList<>();
 
         seancesItem = new SeancesItem();//0
-        seancesItem.setDate("22.08");
+        seancesItem.setDate("22.08 Вторник");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -63,7 +74,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//5
-        seancesItem.setDate("24.08");
+        seancesItem.setDate("24.08 Среда");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -87,7 +98,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//10
-        seancesItem.setDate("26.08");
+        seancesItem.setDate("26.08 Четверг");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -111,7 +122,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//15
-        seancesItem.setDate("27.08");
+        seancesItem.setDate("27.08 Пятница");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -135,7 +146,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//20
-        seancesItem.setDate("29.08");
+        seancesItem.setDate("29.08 Суббота");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -159,7 +170,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//25
-        seancesItem.setDate("31.08");
+        seancesItem.setDate("31.08 Воскресенье");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -178,7 +189,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//29
-        seancesItem.setDate("02.09");
+        seancesItem.setDate("02.09 Понедельник");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -202,7 +213,7 @@ public class SeancesFragment extends Fragment {
         itemArrayList.add(seancesSubItem);
 
         seancesItem = new SeancesItem();//34
-        seancesItem.setDate("03:09");
+        seancesItem.setDate("03:09 Вторник");
         itemArrayList.add(seancesItem);
 
         seancesSubItem = new SeancesSubItem();
@@ -224,11 +235,6 @@ public class SeancesFragment extends Fragment {
         seancesSubItem.setTime("20:45");
         seancesSubItem.setFilm(utils.getFilmArrayList().get(4));
         itemArrayList.add(seancesSubItem);
-
-        SeancesRecyclerViewAdapter seancesRecyclerViewAdapter = new SeancesRecyclerViewAdapter(itemArrayList);
-        recyclerView.setAdapter(seancesRecyclerViewAdapter);
-
-        return recyclerView;
     }
 
 }

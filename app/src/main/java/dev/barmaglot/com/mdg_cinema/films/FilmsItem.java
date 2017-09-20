@@ -6,10 +6,10 @@ import java.util.ArrayList;
  * Created by vorvit1980 on 19.09.2017.
  */
 
-public class Item {
+public class FilmsItem {
     private String date;
 
-    public Item() {
+    public FilmsItem() {
 
     }
 

@@ -20,7 +20,7 @@ import dev.barmaglot.com.mdg_cinema.seances.SeancesSubItem;
  */
 public class FilmsFragment extends Fragment {
 
-    private Item item = null;
+    private FilmsItem filmsItem = null;
     private SeancesSubItem seancesSubItem = null;
     private Utils utils;
 
@@ -39,9 +39,9 @@ public class FilmsFragment extends Fragment {
 
         ArrayList<Object> itemArrayList = new ArrayList<>();
 
-        item = new Item();//0
-        item.setDate("22.08");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//0
+        filmsItem.setDate("22.08");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("16:00");
@@ -63,9 +63,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(3));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//5
-        item.setDate("24.08");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//5
+        filmsItem.setDate("24.08");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("15:00");
@@ -87,9 +87,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(4));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//10
-        item.setDate("26.08");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//10
+        filmsItem.setDate("26.08");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("15:00");
@@ -111,9 +111,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(4));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//15
-        item.setDate("27.08");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//15
+        filmsItem.setDate("27.08");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("14:30");
@@ -135,9 +135,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(5));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//20
-        item.setDate("29.08");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//20
+        filmsItem.setDate("29.08");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("14:30");
@@ -159,9 +159,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(4));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//25
-        item.setDate("31.08");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//25
+        filmsItem.setDate("31.08");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("16:00");
@@ -178,9 +178,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(6));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//29
-        item.setDate("02.09");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//29
+        filmsItem.setDate("02.09");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("15:00");
@@ -202,9 +202,9 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(4));
         itemArrayList.add(seancesSubItem);
 
-        item = new Item();//34
-        item.setDate("03:09");
-        itemArrayList.add(item);
+        filmsItem = new FilmsItem();//34
+        filmsItem.setDate("03:09");
+        itemArrayList.add(filmsItem);
 
         seancesSubItem = new SeancesSubItem();
         seancesSubItem.setTime("15:00");
@@ -226,8 +226,8 @@ public class FilmsFragment extends Fragment {
         seancesSubItem.setFilm(utils.getFilmArrayList().get(4));
         itemArrayList.add(seancesSubItem);
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(itemArrayList);
-        recyclerView.setAdapter(recyclerViewAdapter);
+        FilmsRecyclerViewAdapter filmsRecyclerViewAdapter = new FilmsRecyclerViewAdapter(itemArrayList);
+        recyclerView.setAdapter(filmsRecyclerViewAdapter);
 
         return recyclerView;
     }

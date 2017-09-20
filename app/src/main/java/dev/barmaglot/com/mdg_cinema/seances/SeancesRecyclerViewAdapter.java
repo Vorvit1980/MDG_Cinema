@@ -1,5 +1,7 @@
 package dev.barmaglot.com.mdg_cinema.seances;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import dev.barmaglot.com.mdg_cinema.DetailActivity;
 import dev.barmaglot.com.mdg_cinema.R;
 
 /**
@@ -61,6 +64,7 @@ public class SeancesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
             SubItemHolder subItemHolder = (SubItemHolder) holder;
             subItemHolder.subItemTime.setText(seancesSubItem.getTime());
             subItemHolder.subItemName.setText(seancesSubItem.getFilm().getFilmName());
+            subItemHolder.subItemPrice.setText(String.valueOf(seancesSubItem.getFilm().getSeanceList().get(0).getPrice())+"p");
         }
 
     }
@@ -84,11 +88,23 @@ public class SeancesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
         TextView subItemName = null;
         TextView subItemTime = null;
+        TextView subItemPrice = null;
 
         public SubItemHolder(View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
             subItemName = itemView.findViewById(R.id.sub_item_name);
             subItemTime = itemView.findViewById(R.id.sub_item_time);
+            subItemPrice = itemView.findViewById(R.id.sub_item_price);
 
         }
     }

@@ -14,14 +14,14 @@ import dev.barmaglot.com.mdg_cinema.R;
  * Created by vorvit1980 on 19.09.2017.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class FilmsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<Object> itemArrayList = null;
 
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_SUB_ITEM = 1;
 
-    public RecyclerViewAdapter(ArrayList<Object> itemArrayList) {
+    public FilmsRecyclerViewAdapter(ArrayList<Object> itemArrayList) {
         this.itemArrayList = itemArrayList;
 
     }
@@ -53,9 +53,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int nType = getItemViewType(position);
         if (nType == TYPE_ITEM) {
-            Item item = (Item) itemArrayList.get(position);
+            FilmsItem filmsItem = (FilmsItem) itemArrayList.get(position);
             ItemHolder itemHolder = (ItemHolder) holder;
-            itemHolder.itemDate.setText(item.getDate());
+            itemHolder.itemDate.setText(filmsItem.getDate());
         }
 
     }
