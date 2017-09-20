@@ -1,7 +1,6 @@
-package dev.barmaglot.com.mdg_cinema.example;
+package dev.barmaglot.com.mdg_cinema.films;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +29,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public int getItemViewType(int position) {
         int nType = TYPE_SUB_ITEM;
-        if (position == 0 || position == 3) {
+        if (position == 0 || position == 5 || position == 10 || position == 15 || position == 20 ||
+                position == 25 || position == 29 || position == 34) {
             nType = TYPE_ITEM;
         }
         return nType;
@@ -40,10 +40,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder itemHolder = null;
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.seances_item, parent, false);
             itemHolder = new ItemHolder(v);
         } else if (viewType == TYPE_SUB_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_sub_item, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.seances_sub_item, parent, false);
             itemHolder = new SubItemHolder(v);
         }
         return itemHolder;
@@ -55,29 +55,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (nType == TYPE_ITEM) {
             Item item = (Item) itemArrayList.get(position);
             ItemHolder itemHolder = (ItemHolder) holder;
-            itemHolder.tvDate.setText(item.getDate());
-        }else if (nType == TYPE_SUB_ITEM){
-            SubItem subItem = (SubItem)itemArrayList.get(position);
-            SubItemHolder subItemHolder = (SubItemHolder) holder;
-            subItemHolder.subItemTime.setText(subItem.getTime());
-            subItemHolder.subItemName.setText(subItem.getName());
+            itemHolder.itemDate.setText(item.getDate());
         }
 
     }
 
     @Override
     public int getItemCount() {
-        Log.d("MyLog", "Size: " + String.valueOf(itemArrayList.size()));
         return itemArrayList.size();
     }
 
     public class ItemHolder extends RecyclerView.ViewHolder {
 
-        TextView tvDate = null;
+        TextView itemDate = null;
 
         public ItemHolder(View itemView) {
             super(itemView);
-            tvDate = itemView.findViewById(R.id.item_date);
+            itemDate = itemView.findViewById(R.id.item_date);
         }
     }
 

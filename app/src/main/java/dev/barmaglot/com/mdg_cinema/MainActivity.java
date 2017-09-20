@@ -18,7 +18,7 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.barmaglot.com.mdg_cinema.example.NewFragment;
+import dev.barmaglot.com.mdg_cinema.seances.SeancesFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new NewFragment(), "Сеансы");
+        adapter.addFragment(new SeancesFragment(), "Сеансы");
         adapter.addFragment(new FilmsListFragment(), "Фильмы");
         viewPager.setAdapter(adapter);
     }

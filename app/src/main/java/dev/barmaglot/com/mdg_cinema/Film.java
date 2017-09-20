@@ -9,7 +9,7 @@ public class Film {
     private String filmUrl;
     private int filmDuration;
 
-    private List<Seance> seanceList;
+    private ArrayList<Seance> seanceList;
 
     public Film(String filmName, String filmDescription, String filmUrl, int filmDuration) {
         seanceList = new ArrayList<>();
@@ -34,7 +34,7 @@ public class Film {
 
 
 
-    public List<Seance> getSeanceList() {
+    public ArrayList<Seance> getSeanceList() {
         return seanceList;
     }
 
