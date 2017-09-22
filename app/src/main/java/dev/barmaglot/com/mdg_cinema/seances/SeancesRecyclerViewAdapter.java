@@ -93,15 +93,6 @@ public class SeancesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         public SubItemHolder(View itemView) {
             super(itemView);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, DetailActivity.class);
-                    context.startActivity(intent);
-                }
-            });
-
             subItemName = itemView.findViewById(R.id.sub_item_name);
             subItemTime = itemView.findViewById(R.id.sub_item_time);
             subItemPrice = itemView.findViewById(R.id.sub_item_price);

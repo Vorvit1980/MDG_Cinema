@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,39 +30,33 @@ import android.widget.TextView;
  * Provides UI for the Detail page with Collapsing Toolbar.
  */
 public class DetailActivity extends AppCompatActivity {
-
-    public static final String EXTRA_POSITION = "position";
+    private Utils utils;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utils = new Utils();
         setContentView(R.layout.activity_detail);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set Collapsing Toolbar layout to the screen
-        CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         // Set title of Detail page
         // collapsingToolbar.setTitle(getString(R.string.item_title));
 
-        int position = getIntent().getIntExtra(EXTRA_POSITION, 0);
-        System.out.println(position);
-        Resources resources = getResources();
-        String[] places = resources.getStringArray(R.array.filmNames);
-        collapsingToolbar.setTitle(places[position]);
 
-        String[] placeDetails = resources.getStringArray(R.array.filmDescription);
+        int position = getIntent().getIntExtra("position", 1);
+        Resources resources = getResources();
+
+        toolbar.setTitle(utils.getFilmArrayList().get(position).getFilmName());
+
         TextView placeDetail = (TextView) findViewById(R.id.place_detail);
-        placeDetail.setText(placeDetails[position]);
+        placeDetail.setText(utils.getFilmArrayList().get(position).getFilmDescription());
 
         String[] placeLocations = resources.getStringArray(R.array.filmDescriptionLong);
-        TextView placeLocation =  (TextView) findViewById(R.id.place_location);
+        TextView placeLocation = (TextView) findViewById(R.id.place_location);
         placeLocation.setText(placeLocations[position]);
 
-        TypedArray placePictures = resources.obtainTypedArray(R.array.filmPicture);
-        ImageView placePicutre = (ImageView) findViewById(R.id.image);
-        placePicutre.setImageDrawable(placePictures.getDrawable(position));
-
-        placePictures.recycle();
     }
+
+
 }
