@@ -1,4 +1,4 @@
-package dev.barmaglot.com.mdg_cinema.films;
+package dev.barmaglot.com.mdg_cinema;
 
 
 import android.os.Bundle;
@@ -10,11 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-
-import dev.barmaglot.com.mdg_cinema.Film;
-import dev.barmaglot.com.mdg_cinema.R;
-import dev.barmaglot.com.mdg_cinema.Utils;
-import dev.barmaglot.com.mdg_cinema.seances.SeancesSubItem;
 
 public class FilmsFragment extends Fragment {
 

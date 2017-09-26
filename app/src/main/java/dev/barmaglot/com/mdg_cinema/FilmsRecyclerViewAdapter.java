@@ -1,4 +1,4 @@
-package dev.barmaglot.com.mdg_cinema.films;
+package dev.barmaglot.com.mdg_cinema;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,8 +32,8 @@ public class FilmsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder itemHolder = null;
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card, parent, false);
-            itemHolder = new ItemHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card, parent, false);
+        itemHolder = new ItemHolder(v);
 
         return itemHolder;
     }
@@ -41,8 +42,9 @@ public class FilmsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemHolder itemHolder = (ItemHolder) holder;
         itemHolder.filmName.setText(itemArrayList.get(position).getFilmName());
-        itemHolder.filmDuration.setText(String.valueOf(itemArrayList.get(position).getFilmDuration())+" мин");
-        itemHolder.filmAge.setText(String.valueOf(itemArrayList.get(position).getSeanceList().get(0).getAge())+"+");
+        itemHolder.filmDuration.setText(String.valueOf(itemArrayList.get(position).getFilmDuration()) + " мин");
+        itemHolder.filmAge.setText(String.valueOf(itemArrayList.get(position).getSeanceList().get(0).getAge()) + "+");
+        itemHolder.filmImage.setImageResource(itemArrayList.get(position).getImage());
     }
 
     @Override
@@ -55,6 +57,7 @@ public class FilmsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
         TextView filmName = null;
         TextView filmDuration = null;
         TextView filmAge;
+        ImageView filmImage;
 
 
         public ItemHolder(View itemView) {
@@ -70,9 +73,10 @@ public class FilmsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
                 }
             });
 
-            filmName = itemView.findViewById(R.id.card_title);
-            filmDuration = itemView.findViewById(R.id.card_text);
-            filmAge = itemView.findViewById(R.id.favorite_button);
+            filmName = (TextView) itemView.findViewById(R.id.card_title);
+            filmDuration = (TextView) itemView.findViewById(R.id.card_text);
+            filmAge = (TextView) itemView.findViewById(R.id.favorite_button);
+            filmImage = (ImageView) itemView.findViewById(R.id.film_image);
         }
     }
 

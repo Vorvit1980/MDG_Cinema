@@ -64,7 +64,9 @@ public class SeancesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
             SubItemHolder subItemHolder = (SubItemHolder) holder;
             subItemHolder.subItemTime.setText(seancesSubItem.getTime());
             subItemHolder.subItemName.setText(seancesSubItem.getFilm().getFilmName());
-            subItemHolder.subItemPrice.setText(String.valueOf(seancesSubItem.getFilm().getSeanceList().get(0).getPrice())+"p");
+            String string = String.valueOf(seancesSubItem.getFilm().getSeanceList().get(0).getPrice());
+            subItemHolder.subItemPrice.setText(string + "p");
+            //subItemHolder.subItemAge.setText(String.valueOf(seancesSubItem.getFilm().getSeanceList().get(0).getAge())+"+");
         }
 
     }
@@ -80,7 +82,7 @@ public class SeancesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
         public ItemHolder(View itemView) {
             super(itemView);
-            itemDate = itemView.findViewById(R.id.item_date);
+            itemDate = (TextView)itemView.findViewById(R.id.item_date);
         }
     }
 
@@ -89,13 +91,15 @@ public class SeancesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         TextView subItemName = null;
         TextView subItemTime = null;
         TextView subItemPrice = null;
+        TextView subItemAge = null;
 
         public SubItemHolder(View itemView) {
             super(itemView);
 
-            subItemName = itemView.findViewById(R.id.sub_item_name);
-            subItemTime = itemView.findViewById(R.id.sub_item_time);
-            subItemPrice = itemView.findViewById(R.id.sub_item_price);
+            subItemName = (TextView)itemView.findViewById(R.id.sub_item_name);
+            subItemTime = (TextView)itemView.findViewById(R.id.sub_item_time);
+            subItemPrice = (TextView)itemView.findViewById(R.id.sub_item_price);
+            //subItemAge = itemView.findViewById(R.id.sub_item_age);
 
         }
     }

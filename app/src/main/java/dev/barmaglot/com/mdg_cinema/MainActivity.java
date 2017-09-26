@@ -1,6 +1,8 @@
 package dev.barmaglot.com.mdg_cinema;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.app.Fragment;
@@ -18,7 +20,6 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.barmaglot.com.mdg_cinema.films.FilmsFragment;
 import dev.barmaglot.com.mdg_cinema.seances.SeancesFragment;
 
 public class MainActivity extends AppCompatActivity {

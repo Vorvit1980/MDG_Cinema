@@ -14,9 +14,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/red">
 
         <ImageView
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
             android:src="@drawable/b"
             android:id="@+id/film_image"
             android:layout_width="match_parent"

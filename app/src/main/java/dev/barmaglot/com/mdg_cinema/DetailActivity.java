@@ -16,13 +16,13 @@
 
 package dev.barmaglot.com.mdg_cinema;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,27 +36,41 @@ public class DetailActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         utils = new Utils();
-        setContentView(R.layout.activity_detail);
-        // Set Collapsing Toolbar layout to the screen
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        // Set title of Detail page
-        // collapsingToolbar.setTitle(getString(R.string.item_title));
-
-
-        int position = getIntent().getIntExtra("position", 1);
+        final int position = getIntent().getIntExtra("position", 1);
         Resources resources = getResources();
+        setContentView(R.layout.activity_detail);
 
-        toolbar.setTitle(utils.getFilmArrayList().get(position).getFilmName());
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        TextView placeDetail = (TextView) findViewById(R.id.place_detail);
-        placeDetail.setText(utils.getFilmArrayList().get(position).getFilmDescription());
+        setSupportActionBar(toolbar);
 
-        String[] placeLocations = resources.getStringArray(R.array.filmDescriptionLong);
-        TextView placeLocation = (TextView) findViewById(R.id.place_location);
-        placeLocation.setText(placeLocations[position]);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); // посмотреть callback
+
+        getSupportActionBar().setTitle(utils.getFilmArrayList().get(position).getFilmName());
+
+        //TextView filmDescription = (TextView) findViewById(R.id.film_description);
+        //filmDescription.setText(utils.getFilmArrayList().get(position).getFilmDescription() + " длинное описание очень. Длинннннооооооооооое описание описание. длинное-предлинное описание");
+
+        TextView filmAge = (TextView) findViewById(R.id.film_age);
+        filmAge.setText(String.valueOf(utils.getFilmArrayList().get(position).getSeanceList().get(0).getAge()) + "+");
+
+        TextView filmDuration = (TextView) findViewById(R.id.film_duration);
+        filmDuration.setText(String.valueOf(utils.getFilmArrayList().get(position).getFilmDuration()) + " мин");
+
+        ImageView filmImage = (ImageView) findViewById(R.id.film_image);
+        filmImage.setImageResource(utils.getFilmArrayList().get(position).getImage());
+        filmImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                /*Intent intent = new Intent(context, YouTube.class);
+                intent.putExtra("position",position);*/
+                Intent intent = new Intent(context,YouTubeActivity.class);
+                intent.putExtra("position",position);
+                context.startActivity(intent);
+            }
+        });
 
     }
-
 
 }
